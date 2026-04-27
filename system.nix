@@ -15,10 +15,58 @@
 
   # macOS preference defaults — discover more in the nix-darwin manual.
   system.defaults = {
+    CustomUserPreferences = {
+      "com.apple.HIToolbox" = {
+        AppleCurrentKeyboardLayoutInputSourceID = "com.apple.keylayout.US";
+        AppleDefaultAsciiInputSource = {
+          InputSourceKind = "Keyboard Layout";
+          "KeyboardLayout ID" = 0;
+          "KeyboardLayout Name" = "U.S.";
+        };
+        AppleEnabledInputSources = [
+          {
+            InputSourceKind = "Keyboard Layout";
+            "KeyboardLayout ID" = 0;
+            "KeyboardLayout Name" = "U.S.";
+          }
+          {
+            InputSourceKind = "Keyboard Layout";
+            "KeyboardLayout ID" = 7;
+            "KeyboardLayout Name" = "Swedish - Pro";
+          }
+        ];
+        AppleInputSourceHistory = [
+          {
+            InputSourceKind = "Keyboard Layout";
+            "KeyboardLayout ID" = 0;
+            "KeyboardLayout Name" = "U.S.";
+          }
+          {
+            InputSourceKind = "Keyboard Layout";
+            "KeyboardLayout ID" = 7;
+            "KeyboardLayout Name" = "Swedish - Pro";
+          }
+        ];
+        AppleSelectedInputSources = [
+          {
+            InputSourceKind = "Keyboard Layout";
+            "KeyboardLayout ID" = 0;
+            "KeyboardLayout Name" = "U.S.";
+          }
+        ];
+      };
+      "com.apple.TextInputMenu" = {
+        visible = true;
+      };
+    };
     dock = {
       autohide = true;
       mru-spaces = false;
       show-recents = false;
+      wvous-bl-corner = 1;
+      wvous-br-corner = 1;
+      wvous-tl-corner = 1;
+      wvous-tr-corner = 1;
     };
     finder = {
       AppleShowAllExtensions = true;
@@ -29,6 +77,12 @@
       AppleInterfaceStyle = "Dark";
       InitialKeyRepeat = 14;
       KeyRepeat = 2;
+      NSAutomaticCapitalizationEnabled = false;
+      NSAutomaticDashSubstitutionEnabled = false;
+      NSAutomaticInlinePredictionEnabled = false;
+      NSAutomaticPeriodSubstitutionEnabled = false;
+      NSAutomaticQuoteSubstitutionEnabled = false;
+      NSAutomaticSpellingCorrectionEnabled = false;
     };
   };
 }

@@ -20,6 +20,7 @@
       "font-jetbrains-mono-nerd-font"
       "ghostty"
       "google-chrome"
+      "discord"
       "codex"
       "claude-code"
     ];

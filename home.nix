@@ -19,10 +19,4 @@ in {
   xdg.configFile."aerospace/aerospace.toml".source = dotfile "aerospace/aerospace.toml";
   xdg.configFile."karabiner/karabiner.json".source = dotfile "karabiner/karabiner.json";
   xdg.configFile."nvim".source = dotfile "nvim";
-
-  programs.zsh = {
-    enable = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-  };
 }

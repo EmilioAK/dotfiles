@@ -14,6 +14,11 @@
       "fish"
       "git"
       "neovim"
+      "rg"
+      "fd"
+      "fzf"
+      "lazygit"
+      "node"
     ];
 
     casks = [

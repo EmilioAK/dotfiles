@@ -16,8 +16,10 @@
     ];
 
     casks = [
+      "font-jetbrains-mono-nerd-font"
       "ghostty"
       "google-chrome"
+      "codex"
     ];
 
     masApps = {

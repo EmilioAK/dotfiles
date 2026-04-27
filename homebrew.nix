@@ -11,6 +11,7 @@
     taps  = [ ];
 
     brews = [
+      "fish"
       "git"
       "neovim"
     ];

@@ -58,6 +58,9 @@
       "com.apple.TextInputMenu" = {
         visible = true;
       };
+      "-currentHost -g" = {
+        "com.apple.mouse.tapBehavior" = 1;
+      };
     };
     WindowManager = {
       GloballyEnabled = false;
@@ -67,6 +70,7 @@
     };
     dock = {
       autohide = true;
+      expose-group-apps = true;
       mru-spaces = false;
       show-recents = false;
       wvous-bl-corner = 1;
@@ -93,6 +97,7 @@
     };
     trackpad = {
       Clicking = true;
+      TrackpadRightClick = true;
     };
   };
 }

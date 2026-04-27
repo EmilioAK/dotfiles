@@ -24,6 +24,7 @@
       "codex"
       "claude-code"
       "nikitabobko/tap/aerospace"
+      "karabiner-elements"
     ];
 
     masApps = {

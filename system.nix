@@ -8,6 +8,8 @@
 
   nix.settings.experimental-features = "nix-command flakes";
 
+  services.karabiner-elements.enable = true;
+
   # Bump only when `darwin-rebuild changelog` tells you to.
   system.stateVersion = 6;
 

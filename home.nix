@@ -11,6 +11,7 @@ in {
 
   home.file.".gitconfig".source = dotfile "gitconfig";
   xdg.configFile."ghostty/config".source = dotfile "ghostty/config";
+  xdg.configFile."fish/config.fish".source = dotfile "fish/config.fish";
 
   programs.zsh = {
     enable = true;

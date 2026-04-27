@@ -59,6 +59,12 @@
         visible = true;
       };
     };
+    WindowManager = {
+      GloballyEnabled = false;
+      EnableStandardClickToShowDesktop = false;
+      StandardHideWidgets = true;
+      StageManagerHideWidgets = true;
+    };
     dock = {
       autohide = true;
       mru-spaces = false;
@@ -83,6 +89,10 @@
       NSAutomaticPeriodSubstitutionEnabled = false;
       NSAutomaticQuoteSubstitutionEnabled = false;
       NSAutomaticSpellingCorrectionEnabled = false;
+      "com.apple.mouse.tapBehavior" = 1;
+    };
+    trackpad = {
+      Clicking = true;
     };
   };
 }

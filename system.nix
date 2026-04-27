@@ -1,4 +1,14 @@
-{ username, ... }: {
+{ username, ... }:
+let
+  keyboardLayout = id: name: {
+    InputSourceKind = "Keyboard Layout";
+    "KeyboardLayout ID" = id;
+    "KeyboardLayout Name" = name;
+  };
+
+  usLayout = keyboardLayout 0 "U.S.";
+  swedishProLayout = keyboardLayout 7 "Swedish - Pro";
+in {
   system.primaryUser = username;
 
   users.users.${username} = {
@@ -18,48 +28,13 @@
     CustomUserPreferences = {
       "com.apple.HIToolbox" = {
         AppleCurrentKeyboardLayoutInputSourceID = "com.apple.keylayout.US";
-        AppleDefaultAsciiInputSource = {
-          InputSourceKind = "Keyboard Layout";
-          "KeyboardLayout ID" = 0;
-          "KeyboardLayout Name" = "U.S.";
-        };
-        AppleEnabledInputSources = [
-          {
-            InputSourceKind = "Keyboard Layout";
-            "KeyboardLayout ID" = 0;
-            "KeyboardLayout Name" = "U.S.";
-          }
-          {
-            InputSourceKind = "Keyboard Layout";
-            "KeyboardLayout ID" = 7;
-            "KeyboardLayout Name" = "Swedish - Pro";
-          }
-        ];
-        AppleInputSourceHistory = [
-          {
-            InputSourceKind = "Keyboard Layout";
-            "KeyboardLayout ID" = 0;
-            "KeyboardLayout Name" = "U.S.";
-          }
-          {
-            InputSourceKind = "Keyboard Layout";
-            "KeyboardLayout ID" = 7;
-            "KeyboardLayout Name" = "Swedish - Pro";
-          }
-        ];
-        AppleSelectedInputSources = [
-          {
-            InputSourceKind = "Keyboard Layout";
-            "KeyboardLayout ID" = 0;
-            "KeyboardLayout Name" = "U.S.";
-          }
-        ];
+        AppleDefaultAsciiInputSource = usLayout;
+        AppleEnabledInputSources = [ usLayout swedishProLayout ];
+        AppleInputSourceHistory = [ usLayout swedishProLayout ];
+        AppleSelectedInputSources = [ usLayout ];
       };
       "com.apple.TextInputMenu" = {
         visible = true;
-      };
-      "-currentHost -g" = {
-        "com.apple.mouse.tapBehavior" = 1;
       };
     };
     WindowManager = {
@@ -93,7 +68,6 @@
       NSAutomaticPeriodSubstitutionEnabled = false;
       NSAutomaticQuoteSubstitutionEnabled = false;
       NSAutomaticSpellingCorrectionEnabled = false;
-      "com.apple.mouse.tapBehavior" = 1;
     };
     trackpad = {
       Clicking = true;

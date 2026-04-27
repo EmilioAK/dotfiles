@@ -1,13 +1,10 @@
-{ pkgs, username, ... }: {
+{ username, ... }: {
   system.primaryUser = username;
 
   users.users.${username} = {
     name = username;
     home = "/Users/${username}";
   };
-
-  # Keep this minimal — Homebrew owns packages.
-  environment.systemPackages = [ pkgs.vim ];
 
   nix.settings.experimental-features = "nix-command flakes";
 

@@ -8,7 +8,7 @@
       cleanup = "uninstall";  # "zap" later, once you trust the setup
     };
 
-    taps  = [ ];
+    taps  = [ "nikitabobko/tap" ];
 
     brews = [
       "fish"
@@ -23,6 +23,7 @@
       "discord"
       "codex"
       "claude-code"
+      "nikitabobko/tap/aerospace"
     ];
 
     masApps = {

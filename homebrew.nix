@@ -19,6 +19,7 @@
       "fzf"
       "lazygit"
       "node"
+      "ripgrep"
     ];
 
     casks = [

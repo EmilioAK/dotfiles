@@ -12,12 +12,12 @@
 
     brews = [
       "git"
+      "neovim"
     ];
 
     casks = [
-      # "firefox"
-      # "ghostty"
-      # "raycast"
+      "ghostty"
+      "google-chrome"
     ];
 
     masApps = {

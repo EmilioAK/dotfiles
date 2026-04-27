@@ -8,6 +8,8 @@
 
   nix.settings.experimental-features = "nix-command flakes";
 
+  security.pam.services.sudo_local.touchIdAuth = true;
+
   # Bump only when `darwin-rebuild changelog` tells you to.
   system.stateVersion = 6;
 

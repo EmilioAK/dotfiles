@@ -8,6 +8,11 @@
 
   nix.settings.experimental-features = "nix-command flakes";
 
+  # Generate /etc/fish/conf.d integration for Nix env while still allowing
+  # Homebrew fish to be the interactive shell binary.
+  programs.fish.enable = true;
+  programs.fish.useBabelfish = true;
+
   # Bump only when `darwin-rebuild changelog` tells you to.
   system.stateVersion = 6;
 

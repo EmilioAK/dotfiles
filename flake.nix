@@ -15,11 +15,10 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
   let
-    hostname = "Emilios-Virtual-Machine";
-    username = "emilio";
-    system   = "aarch64-darwin";
-  in {
-    darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
+    local = import ./local.nix;
+    inherit (local) hostname username system;
+
+    configuration = nix-darwin.lib.darwinSystem {
       inherit system;
       specialArgs = { inherit username hostname; };
       modules = [
@@ -36,5 +35,8 @@
         }
       ];
     };
+  in {
+    darwinConfigurations.${hostname} = configuration;
+    darwinConfigurations.default = configuration;
   };
 }

@@ -28,9 +28,8 @@ in {
     CustomUserPreferences = {
       # Observed from System Settings after configuring Color Filters.
       "com.apple.mediaaccessibility" = {
-        "__Color__-MADisplayFilterCategoryEnabled" = 0;
         "__Color__-MADisplayFilterType" = 16;
-        MADisplayFilterSingleColorIntensity = 0.7100822925567627;
+        MADisplayFilterSingleColorIntensity = 0.8940475583076477;
       };
       "com.apple.HIToolbox" = {
         AppleCurrentKeyboardLayoutInputSourceID = "com.apple.keylayout.US";

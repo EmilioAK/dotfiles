@@ -5,7 +5,7 @@
     onActivation = {
       autoUpdate = true;
       upgrade = true;
-      cleanup = "uninstall";  # "zap" later, once you trust the setup
+      cleanup = "zap";
     };
 
     taps  = [ "nikitabobko/tap" ];
@@ -33,7 +33,8 @@
     ];
 
     masApps = {
-      #"Bitwarden" = 1352778147;
+      "Bitwarden" = 1352778147;
+      "WhatsApp Messenger" = 310633997;
     };
   };
 }

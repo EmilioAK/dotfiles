@@ -1,7 +1,5 @@
-{ lib, username, ... }:
+{ username, ... }:
 let
-  inherit (lib) escapeShellArg generators mkAfter;
-
   keyboardLayout = id: name: {
     InputSourceKind = "Keyboard Layout";
     "KeyboardLayout ID" = id;
@@ -10,19 +8,6 @@ let
 
   usLayout = keyboardLayout 0 "U.S.";
   swedishProLayout = keyboardLayout 7 "Swedish - Pro";
-
-  # Seed Control Center's Vision Accessibility list with Color Filters.
-  visionAccessibilityShortcutIds = [
-    "com.apple.universalaccess.axDisplayFilterEnabled.toggle"
-  ];
-
-  writeByHostUserDefault = domain: key: value:
-    let
-      user = escapeShellArg username;
-    in
-    ''
-      launchctl asuser "$(id -u -- ${user})" sudo --user=${user} -- defaults write ~${username}/Library/Preferences/ByHost/${domain} ${escapeShellArg key} ${escapeShellArg (generators.toPlist { escape = true; } value)}
-    '';
 in {
   system.primaryUser = username;
 
@@ -95,12 +80,4 @@ in {
       TrackpadRightClick = true;
     };
   };
-
-  system.activationScripts.postUserAccessibilityShortcuts.text = mkAfter ''
-    echo >&2 "vision accessibility shortcuts..."
-    ${writeByHostUserDefault
-      "com.apple.controlcenter.visionaccessibility"
-      "sortedShortcutIDs"
-      visionAccessibilityShortcutIds}
-  '';
 }

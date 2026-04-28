@@ -1,13 +1,14 @@
 # Setup
 
-1. Install Nix: <https://nix.dev/install-nix>
-2. Install Homebrew: <https://docs.brew.sh/Installation.html>
+1. Install Nix: <https://nixos.org/download/>
+2. Install Homebrew: <https://brew.sh/>
 3. Run:
 
 ```sh
 mkdir -p ~/.config
-git clone git@github.com:EmilioAK/nix-darwin-config.git ~/.config/nix-darwin
+git clone https://github.com/EmilioAK/nix-darwin-config ~/.config/nix-darwin
 cd ~/.config/nix-darwin
+git remote set-url --push origin git@github.com:EmilioAK/nix-darwin-config.git
 ```
 
 4. Run:
@@ -34,7 +35,6 @@ Notes:
 
 - This repo expects to live at `~/.config/nix-darwin`
 - `local.nix` is required and local-only, so the flake ref uses `path:`
-- It's normal to have to restart once and start over due to FileVault
 
 Current limitations:
 

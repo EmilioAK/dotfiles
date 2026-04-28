@@ -18,7 +18,7 @@ in {
     package = pkgs.direnv.overrideAttrs (_: { doCheck = false; });
   };
 
-  home.file.".zprofile".source = dotfile "zprofile";
+  home.file.".zshenv".source = dotfile "zshenv";
   home.file.".zshrc".source = dotfile "zshrc";
   home.file.".gitconfig".source = dotfile "gitconfig";
   xdg.configFile."git/ignore".source = dotfile "git/ignore";

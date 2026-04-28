@@ -13,6 +13,7 @@
     brews = [
       "fish"
       "git"
+      "mas"
       "neovim"
       "fd"
       "fzf"

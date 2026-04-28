@@ -35,3 +35,8 @@ Notes:
 - This repo expects to live at `~/.config/nix-darwin`
 - `local.nix` is required and local-only, so the flake ref uses `path:`
 - It's normal to have to restart once and start over due to FileVault
+
+Current limitations:
+
+- Control Center layout is not tracked — macOS stores it in an opaque format and there's no supported way to set it declaratively
+- Shortcuts automations are not tracked — personal automations are device-local and Apple does not sync them via iCloud, and Nix has no hook into the Shortcuts database

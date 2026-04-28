@@ -31,6 +31,7 @@
       "discord"
       "codex"
       "element"
+      "visual-studio-code"
     ];
 
     masApps = {

@@ -5,4 +5,4 @@ background-blur = true
 font-family = "JetBrainsMono Nerd Font Mono"
 cursor-style-blink = true
 macos-icon = blueprint
-macos-titlebar-style = hidden
+window-decoration = none

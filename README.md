@@ -6,7 +6,7 @@
 
 ```sh
 mkdir -p ~/.config
-git clone git@github.com:EmilioAK/dotfiles.git ~/.config/nix-darwin
+git clone git@github.com:EmilioAK/nix-darwin-config.git ~/.config/nix-darwin
 cd ~/.config/nix-darwin
 ```
 

@@ -30,6 +30,7 @@
       "google-chrome"
       "discord"
       "codex"
+      "element"
     ];
 
     masApps = {

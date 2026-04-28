@@ -19,6 +19,10 @@ cat > local.nix <<EOF
   hostname = "$(scutil --get LocalHostName)";
   username = "$(id -un)";
   system = "$( [ "$(uname -m)" = arm64 ] && echo aarch64-darwin || echo x86_64-darwin )";
+  workModules = [
+    # Add tracked work modules here, for example an empty placeholder:
+    # ./work/example.nix
+  ];
 }
 EOF
 ```

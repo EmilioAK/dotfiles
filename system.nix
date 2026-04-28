@@ -69,6 +69,10 @@ in {
       autohide = true;
       expose-group-apps = true;
       mru-spaces = false;
+      persistent-apps = [
+        "/Applications/Google Chrome.app"
+        "/Applications/Ghostty.app"
+      ];
       show-recents = false;
       wvous-bl-corner = 1;
       wvous-br-corner = 1;

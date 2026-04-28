@@ -18,22 +18,6 @@ in {
 
   nix.settings.experimental-features = "nix-command flakes";
 
-  launchd.user.agents = {
-    ghostty = {
-      serviceConfig = {
-        ProgramArguments = [ "/usr/bin/open" "-gj" "/Applications/Ghostty.app" ];
-        RunAtLoad = true;
-      };
-    };
-
-    bitwarden = {
-      serviceConfig = {
-        ProgramArguments = [ "/usr/bin/open" "-gj" "/Applications/Bitwarden.app" ];
-        RunAtLoad = true;
-      };
-    };
-  };
-
   security.pam.services.sudo_local.touchIdAuth = true;
 
   # Bump only when `darwin-rebuild changelog` tells you to.

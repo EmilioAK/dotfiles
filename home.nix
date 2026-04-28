@@ -1,4 +1,4 @@
-{ pkgs, config, username, hostname, ... }:
+{ pkgs, config, username, ... }:
 let
   flakeRoot = "${config.home.homeDirectory}/.config/nix-darwin";
   dotfile = path: config.lib.file.mkOutOfStoreSymlink "${flakeRoot}/dotfiles/${path}";
@@ -9,15 +9,21 @@ in {
 
   programs.home-manager.enable = true;
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+    # Temporary Darwin workaround: direnv's upstream fish check is currently
+    # getting killed during nix builds, so disable checks until nixpkgs lands
+    # the proper fix.
+    package = pkgs.direnv.overrideAttrs (_: { doCheck = false; });
+  };
+
   home.file.".zprofile".source = dotfile "zprofile";
+  home.file.".zshrc".source = dotfile "zshrc";
   home.file.".gitconfig".source = dotfile "gitconfig";
   xdg.configFile."git/ignore".source = dotfile "git/ignore";
   xdg.configFile."ghostty/config".source = dotfile "ghostty/config";
-  xdg.configFile."fish/config.fish".source = dotfile "fish/config.fish";
-  # Keep this inline so the generated abbreviation can include the local hostname.
-  xdg.configFile."fish/conf.d/darwin-rebuild.fish".text = ''
-    abbr --add --global drs "sudo darwin-rebuild switch --flake path:${flakeRoot}#${hostname}"
-  '';
+  xdg.configFile."fish".source = dotfile "fish";
   xdg.configFile."aerospace/aerospace.toml".source = dotfile "aerospace/aerospace.toml";
   xdg.configFile."karabiner/karabiner.json".source = dotfile "karabiner/karabiner.json";
   xdg.configFile."nvim".source = dotfile "nvim";

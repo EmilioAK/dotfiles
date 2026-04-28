@@ -9,6 +9,7 @@ in {
 
   programs.home-manager.enable = true;
 
+  home.file.".zprofile".source = dotfile "zprofile";
   home.file.".gitconfig".source = dotfile "gitconfig";
   xdg.configFile."git/ignore".source = dotfile "git/ignore";
   xdg.configFile."ghostty/config".source = dotfile "ghostty/config";

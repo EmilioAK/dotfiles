@@ -35,6 +35,7 @@ Notes:
 
 - This repo expects to live at `~/.config/nix-darwin`
 - `local.nix` is required and local-only, so the flake ref uses `path:`
+- `local.nix` can opt into tracked modules from `work/` via `workModules`
 
 Current limitations:
 

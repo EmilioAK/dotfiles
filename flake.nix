@@ -17,6 +17,7 @@
   let
     local = import ./local.nix;
     inherit (local) hostname username system;
+    workModules = local.workModules or [ ];
 
     configuration = nix-darwin.lib.darwinSystem {
       inherit system;
@@ -33,7 +34,7 @@
           home-manager.extraSpecialArgs = { inherit username hostname; };
           home-manager.users.${username} = import ./home.nix;
         }
-      ];
+      ] ++ workModules;
     };
   in {
     darwinConfigurations.${hostname} = configuration;

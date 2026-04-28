@@ -14,7 +14,6 @@
       "fish"
       "git"
       "neovim"
-      "rg"
       "fd"
       "fzf"
       "lazygit"

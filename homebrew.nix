@@ -25,12 +25,11 @@
     casks = [
       "font-jetbrains-mono-nerd-font"
       "ghostty"
+      "nikitabobko/tap/aerospace"
+      "karabiner-elements"
       "google-chrome"
       "discord"
       "codex"
-      "claude-code"
-      "nikitabobko/tap/aerospace"
-      "karabiner-elements"
     ];
 
     masApps = {

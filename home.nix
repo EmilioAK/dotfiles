@@ -14,6 +14,7 @@ in {
   xdg.configFile."git/ignore".source = dotfile "git/ignore";
   xdg.configFile."ghostty/config".source = dotfile "ghostty/config";
   xdg.configFile."fish/config.fish".source = dotfile "fish/config.fish";
+  # Keep this inline so the generated abbreviation can include the local hostname.
   xdg.configFile."fish/conf.d/darwin-rebuild.fish".text = ''
     abbr --add --global drs "sudo darwin-rebuild switch --flake path:${flakeRoot}#${hostname}"
   '';

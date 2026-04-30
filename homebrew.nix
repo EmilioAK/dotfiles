@@ -20,6 +20,7 @@
       "lazygit"
       "node"
       "ripgrep"
+      "mosh"
     ];
 
     casks = [

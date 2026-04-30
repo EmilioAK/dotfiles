@@ -8,6 +8,17 @@ in {
   home.stateVersion = "25.11";
 
   programs.home-manager.enable = true;
+  programs.ssh = {
+    enable = true;
+    enableDefaultConfig = false;
+    matchBlocks = {
+      vps = {
+        hostname = "vps.emilioak.dev";
+        identityFile = "~/.ssh/id_ed25519";
+        identitiesOnly = true;
+      };
+    };
+  };
 
   programs.direnv = {
     enable = true;
@@ -21,7 +32,6 @@ in {
   home.file.".zshenv".source = dotfile "zshenv";
   home.file.".zshrc".source = dotfile "zshrc";
   home.file.".gitconfig".source = dotfile "gitconfig";
-  home.file.".ssh/config".source = dotfile "ssh/config";
   xdg.configFile."git/ignore".source = dotfile "git/ignore";
   xdg.configFile."ghostty/config".source = dotfile "ghostty/config";
   xdg.configFile."fish".source = dotfile "fish";

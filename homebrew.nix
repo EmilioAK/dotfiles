@@ -21,6 +21,7 @@
       "node"
       "ripgrep"
       "mosh"
+      "fastfetch"
     ];
 
     casks = [

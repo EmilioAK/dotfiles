@@ -22,6 +22,7 @@
       "ripgrep"
       "mosh"
       "fastfetch"
+      "starship"
     ];
 
     casks = [

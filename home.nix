@@ -38,4 +38,5 @@ in {
   xdg.configFile."aerospace/aerospace.toml".source = dotfile "aerospace/aerospace.toml";
   xdg.configFile."karabiner/karabiner.json".source = dotfile "karabiner/karabiner.json";
   xdg.configFile."nvim".source = dotfile "nvim";
+  xdg.configFile."starship.toml".source = dotfile "starship.toml";
 }

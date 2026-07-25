@@ -7,6 +7,7 @@
       "docker"
       "netbirdio/tap/netbird-ui"
       "slack"
+      "mactex-no-gui"
     ];
   };
 }

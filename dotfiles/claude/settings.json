@@ -113,12 +113,15 @@
   },
   "effortLevel": "xhigh",
   "tui": "fullscreen",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
   "agentPushNotifEnabled": true,
   "voiceEnabled": true,
-  "voice": {
-    "enabled": true,
-    "mode": "hold"
+  "enabledPlugins": {
+    "swift-lsp@claude-plugins-official": true
   }
 }

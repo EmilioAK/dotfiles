@@ -11,7 +11,7 @@
     "npm:@quintinshaw/pi-dynamic-workflows",
     "npm:@howaboua/pi-codex-conversion"
   ],
-  "lastChangelogVersion": "0.82.0",
+  "lastChangelogVersion": "0.82.1",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-sol",
   "defaultThinkingLevel": "max",

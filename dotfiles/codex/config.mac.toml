@@ -87,7 +87,7 @@ trusted_hash = "sha256:48d6755760f7ab642548ee60d727316f826848bd35e97d9050ec79d00
 trusted_hash = "sha256:e8cddb92eb048507994711f466eaa945796fe103d62c19e5f4995a86ee8de1e7"
 
 [marketplaces.openai-bundled]
-last_updated = "2026-07-24T13:20:42Z"
+last_updated = "2026-07-27T08:49:27Z"
 source_type = "local"
 source = "/Users/emilio/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
@@ -107,13 +107,13 @@ NODE_REPL_NODE_MODULE_DIRS = "/Applications/ChatGPT.app/Contents/Resources/cua_n
 NODE_REPL_NODE_PATH = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
 NODE_REPL_TRUSTED_CODE_PATHS = "/Users/emilio/.codex"
 CODEX_HOME = "/Users/emilio/.codex"
-NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "3fdfe9a7ad39456da69c5e8fa7bbf7229ec2fe9de5f4cf2e476166bf30a08a7e,6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f"
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f,e13fd947e846d3d306e9249dd3c73d14931b6494803dbafb16cef85e6add9506"
 BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
 NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = "Control the in-app browser in conjunction with the Browser Plugin."
 NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
 NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = "Control desktop apps on macOS through Computer Use."
 BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-BROWSER_USE_CODEX_APP_VERSION = "26.721.31836"
+BROWSER_USE_CODEX_APP_VERSION = "26.721.41059"
 SKY_CUA_SERVICE_PATH = "/Users/emilio/.codex/computer-use/Codex Computer Use.app"
 CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex"
 
@@ -181,5 +181,5 @@ trust_level = "trusted"
 
 [shell_environment_policy.set]
 BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
-NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "3fdfe9a7ad39456da69c5e8fa7bbf7229ec2fe9de5f4cf2e476166bf30a08a7e,6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f"
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f,e13fd947e846d3d306e9249dd3c73d14931b6494803dbafb16cef85e6add9506"
 NODE_REPL_TRUSTED_CODE_PATHS = "/Users/emilio/.codex"

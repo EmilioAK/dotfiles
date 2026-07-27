@@ -22,4 +22,4 @@ sh "${XDG_CONFIG_HOME:-$HOME/.config}/herdr/rename-agent-launch.sh"
 '''
 
 [ui]
-agent_panel_sort = "spaces"
+agent_panel_sort = "priority"

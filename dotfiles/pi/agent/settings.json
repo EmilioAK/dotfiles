@@ -8,8 +8,9 @@
     "npm:@aliou/pi-processes",
     "npm:@narumitw/pi-btw",
     "npm:@tifan/pi-recap",
-    "npm:@quintinshaw/pi-dynamic-workflows",
-    "npm:@howaboua/pi-codex-conversion"
+    "npm:@howaboua/pi-codex-conversion",
+    "npm:@tintinweb/pi-subagents",
+    "npm:@narumitw/pi-usage"
   ],
   "lastChangelogVersion": "0.82.1",
   "defaultProvider": "openai-codex",

@@ -72,6 +72,11 @@ in {
   home.packages = with pkgs; [
     git
     neovim
+    nil
+    nixfmt
+    statix
+    pyright
+    ruff
     fd
     fzf
     lazygit

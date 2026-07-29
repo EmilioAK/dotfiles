@@ -87,12 +87,12 @@ trusted_hash = "sha256:48d6755760f7ab642548ee60d727316f826848bd35e97d9050ec79d00
 trusted_hash = "sha256:e8cddb92eb048507994711f466eaa945796fe103d62c19e5f4995a86ee8de1e7"
 
 [marketplaces.openai-bundled]
-last_updated = "2026-07-27T09:10:16Z"
+last_updated = "2026-07-28T10:28:13Z"
 source_type = "local"
 source = "/Users/emilio/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [marketplaces.openai-primary-runtime]
-last_updated = "2026-07-24T13:27:48Z"
+last_updated = "2026-07-28T11:27:27Z"
 source_type = "local"
 source = "/Users/emilio/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
 

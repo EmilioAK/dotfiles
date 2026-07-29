@@ -14,12 +14,6 @@ let
   };
   codexConfigFile = codexConfigByHost.${hostname}
     or (throw "No Codex config declared for host ${hostname}");
-  sharedAgentSkillEntries = lib.filterAttrs
-    (_: type: type == "directory" || type == "symlink")
-    (builtins.readDir ../../dotfiles/agents/skills);
-  sharedAgentSkillSources = lib.mapAttrs
-    (name: _: "${flakeRoot}/dotfiles/agents/skills/${name}")
-    sharedAgentSkillEntries;
   zshConfigDir = "${config.xdg.configHome}/zsh";
   # npm CLIs that move faster than nixpkgs. `sup` installs each package at
   # `version` or `latest` into ~/.local/share/npm and verifies its expected bins.
@@ -55,13 +49,6 @@ let
   trackedNpmBins = lib.concatMapStringsSep "\n            " builtins.toJSON
     (lib.concatMap (pkg: pkg.bins or [ ]) trackedNpmPackages);
 in {
-  imports = [
-    ./agent-skills.nix
-  ];
-
-  # Both Pi and Codex discover these alongside explicitly selected profiles.
-  emilio.agentSkills.sources = sharedAgentSkillSources;
-
   home.username = username;
   home.homeDirectory =
     if pkgs.stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
@@ -400,6 +387,13 @@ in {
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
+  };
+
+  # Keep the shared discovery root writable so skill package managers can
+  # install and update skills while Home Manager still owns the root symlink.
+  home.file.".agents/skills" = {
+    source = dotfile "agents/skills";
+    force = true;
   };
 
   home.file.".agents/.skill-lock.json" = {

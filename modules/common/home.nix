@@ -15,6 +15,48 @@ let
   codexConfigFile = codexConfigByHost.${hostname}
     or (throw "No Codex config declared for host ${hostname}");
   zshConfigDir = "${config.xdg.configHome}/zsh";
+  ohMyPiVersion = "17.2.1";
+  ohMyPiReleases = {
+    aarch64-darwin = {
+      asset = "omp-darwin-arm64";
+      hash = "sha256-t17dsZup7EAf7l7LNbPOtd3Ehwjpi1oRMTbfXWXyvtg=";
+    };
+    x86_64-darwin = {
+      asset = "omp-darwin-x64";
+      hash = "sha256-0jwZfZMkMSLvmjWiR73YUHXEwTVt0fpKCA+qotrkuQU=";
+    };
+    aarch64-linux = {
+      asset = "omp-linux-arm64";
+      hash = "sha256-00iDdEu1RHb3JoqtS1YeqbHNgm8gHQRLM3xalnE/qD0=";
+    };
+    x86_64-linux = {
+      asset = "omp-linux-x64";
+      hash = "sha256-rAKFpXGqecWNWUglYaOHG+/nMz26OjvcLpBoJlPuM7I=";
+    };
+  };
+  ohMyPiRelease = ohMyPiReleases.${pkgs.stdenv.hostPlatform.system}
+    or (throw "Oh My Pi does not support ${pkgs.stdenv.hostPlatform.system}");
+  ohMyPi = pkgs.stdenvNoCC.mkDerivation {
+    pname = "oh-my-pi";
+    version = ohMyPiVersion;
+    src = pkgs.fetchurl {
+      url = "https://github.com/can1357/oh-my-pi/releases/download/v${ohMyPiVersion}/${ohMyPiRelease.asset}";
+      inherit (ohMyPiRelease) hash;
+    };
+    dontUnpack = true;
+    installPhase = ''
+      runHook preInstall
+      install -Dm755 "$src" "$out/bin/omp"
+      runHook postInstall
+    '';
+    meta = {
+      description = "Coding agent with the IDE wired in";
+      homepage = "https://omp.sh";
+      license = lib.licenses.mit;
+      mainProgram = "omp";
+      platforms = builtins.attrNames ohMyPiReleases;
+    };
+  };
   # npm CLIs that move faster than nixpkgs. `sup` installs each package at
   # `version` or `latest` into ~/.local/share/npm and verifies its expected bins.
   trackedNpmPackages = [
@@ -440,12 +482,21 @@ in {
     source = dotfile "pi/agent/extensions/herdr-agent-state.ts";
     force = true;
   };
-  home.file.".pi/agent/extensions/herdr-workflow-activity.ts" = {
-    source = dotfile "pi/agent/extensions/herdr-workflow-activity.ts";
-    force = true;
-  };
   home.file.".pi/agent/extensions/moshi-hooks.ts" = {
     source = dotfile "pi/agent/extensions/moshi-hooks.ts";
+    force = true;
+  };
+  home.file.".local/bin/omp" = {
+    source = "${ohMyPi}/bin/omp";
+    force = true;
+  };
+  home.file.".omp/agent/config.yml" = {
+    source = dotfile "omp/agent/config.yml";
+    force = true;
+  };
+  home.file.".omp/agent/AGENTS.md".source = dotfile agentContextFile;
+  home.file.".omp/agent/extensions/herdr-omp-agent-state.ts" = {
+    source = dotfile "omp/agent/extensions/herdr-omp-agent-state.ts";
     force = true;
   };
   home.file.".gitconfig".source = dotfile "gitconfig";

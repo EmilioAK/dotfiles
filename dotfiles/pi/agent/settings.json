@@ -1,18 +1,15 @@
 {
   "packages": [
     "npm:pi-claude-code-ui",
-    "npm:pi-mcp-adapter",
     "npm:pi-claude-style-scroll",
     "npm:pi-web-access",
-    "npm:pi-claude-marketplace",
     "npm:@aliou/pi-processes",
     "npm:@narumitw/pi-btw",
     "npm:@tifan/pi-recap",
     "npm:@howaboua/pi-codex-conversion",
-    "npm:@tintinweb/pi-subagents",
-    "npm:@narumitw/pi-usage"
+    "npm:@tintinweb/pi-subagents"
   ],
-  "lastChangelogVersion": "0.82.1",
+  "lastChangelogVersion": "0.83.0",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-sol",
   "defaultThinkingLevel": "max",

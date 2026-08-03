@@ -2,6 +2,14 @@
 
 - Follow project-local instructions when present.
 
+## Default writing style
+
+- Read and apply the `simple-english` skill for all user-facing technical prose, including chat responses.
+- Use pragmatic mode by default.
+- If the user requests STE, ASD-STE100, or compliance, use strict mode.
+- Keep code, identifiers, commands, paths, and quoted errors unchanged.
+- Do not apply this style to marketing copy, blog content, or brand writing.
+
 ## Secrets and authentication
 
 - Secrets are stored as env files under `~/.agents/secrets/`.

@@ -36,6 +36,15 @@
       "skillFolderHash": "a6d128e53b4ec0238baee751dde33bf707adb5ec",
       "installedAt": "2026-07-28T12:32:14.132Z",
       "updatedAt": "2026-07-28T12:32:14.132Z"
+    },
+    "simple-english": {
+      "source": "AminBlg/SimpleEnglish",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/AminBlg/SimpleEnglish.git",
+      "skillPath": "skills/simple-english/SKILL.md",
+      "skillFolderHash": "74737ef88499c741dd02665965c8b5c15c7d8780",
+      "installedAt": "2026-07-30T23:28:43.528Z",
+      "updatedAt": "2026-07-30T23:28:43.528Z"
     }
   },
   "dismissed": {

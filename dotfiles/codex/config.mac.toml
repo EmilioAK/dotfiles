@@ -1,7 +1,7 @@
 #:schema https://developers.openai.com/codex/config-schema.json
 
 model = "gpt-5.6-sol"
-model_reasoning_effort = "xhigh"
+model_reasoning_effort = "max"
 approval_policy = "never"
 sandbox_mode = "danger-full-access"
 approvals_reviewer = "user"
@@ -177,6 +177,15 @@ generate_memories = true
 use_memories = true
 
 [projects."/Users/emilio/Work/Capisoft/LegalPal/legalpal_backend"]
+trust_level = "trusted"
+
+[projects."/Users/emilio/Work/Capisoft/Elfi"]
+trust_level = "trusted"
+
+[projects."/Users/emilio/Projects/Personal"]
+trust_level = "trusted"
+
+[projects."/Users/emilio/.config/nix-config"]
 trust_level = "trusted"
 
 [shell_environment_policy.set]

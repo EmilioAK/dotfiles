@@ -15,12 +15,20 @@
         name = "rjyo/moshi";
         trusted = true;
       }
+      {
+        name = "raine/claude-code-proxy";
+        trusted = true;
+      }
     ];
 
     brews = [
       "mas"
       {
         name = "rjyo/moshi/moshi-hook";
+        restart_service = "changed";
+      }
+      {
+        name = "raine/claude-code-proxy/claude-code-proxy";
         restart_service = "changed";
       }
     ];

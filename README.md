@@ -181,6 +181,11 @@ Use the zsh helpers from the Home Manager zsh config for normal system work:
   tracked npm CLIs after a successful switch.
 - `sup`: update inputs, switch, update npm-managed packages, commit `flake.lock`,
   and collect old garbage.
+- `claude-codex`: launch Claude Code against the local Codex subscription proxy
+  with permission checks skipped. The launcher and proxy config are writable
+  out-of-store symlinks into this repo; the OAuth credential stays in macOS
+  Keychain. Authenticate once after the first switch with
+  `claude-code-proxy codex auth login`.
 
 On macOS the helpers use `darwin-rebuild` and the host name from
 `scutil --get LocalHostName`. On NixOS they use `nixos-rebuild` and the host

@@ -47,6 +47,7 @@
       "vlc"
       "trezor-suite"
       "obsidian"
+      "anki"
     ];
 
     masApps = {

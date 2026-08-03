@@ -23,3 +23,11 @@ sh "${XDG_CONFIG_HOME:-$HOME/.config}/herdr/rename-agent-launch.sh"
 
 [ui]
 agent_panel_sort = "priority"
+
+show_agent_labels_on_pane_borders = true
+[ui.toast]
+delivery = "system"
+
+[theme]
+name = "tokyo-night"
+auto_switch = false

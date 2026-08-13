@@ -9,7 +9,6 @@ in {
   extraSystemModules = [
     ../modules/nixos/hetzner-vps.nix
     ../modules/nixos/server.nix
-    ../modules/nixos/remote-pi-relay.nix
     ({ username, ... }: {
       systemd.tmpfiles.rules = [
         "L /home/${username}/Repos - - - - /mnt/data/home/${username}/Repos"

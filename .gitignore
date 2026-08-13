@@ -1,5 +1,11 @@
 /result
-/.pi/*
-!/.pi/remote-pi/
-/.pi/remote-pi/*
-!/.pi/remote-pi/config.json
+
+# VPS host keys and NetBird enrollment state. Never commit these.
+/nix-vps-extra-files/
+/system-state.tar.gz
+/system-state.tar.gz.sha256
+
+# Tooling caches
+.ruff_cache/
+__pycache__/
+*.pyc

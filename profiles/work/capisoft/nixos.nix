@@ -106,28 +106,8 @@ let
     esac
   '';
 in {
-  environment.systemPackages = with pkgs; [
-    awscli2
-    docker-compose
-    fastfetch
-    fd
-    fzf
-    gitMinimal
-    htop
-    jq
-    kubectl
-    ncdu
-    nodejs
-    postgresql_16
-    python312
-    rancher
-    redis
-    ripgrep
-    terraform
-    tmux
-    uv
-    zellij
-  ];
+  # Developer CLIs come from the Capisoft Home Manager layer (./home.nix), which
+  # applies to this host too. Only system-level services belong here.
 
   networking.iproute2 = {
     enable = true;

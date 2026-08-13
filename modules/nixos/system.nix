@@ -5,9 +5,6 @@
 
   nix.settings.trusted-users = [ "root" "@wheel" ];
 
-  # Allow packaged Linux helpers such as pi-codex-conversion's Rust binaries.
-  programs.nix-ld.enable = true;
-
   users.defaultUserShell = pkgs.zsh;
 
   users.users.${username} = {

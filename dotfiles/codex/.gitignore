@@ -11,5 +11,4 @@ log/
 plugins/cache/
 sessions/
 shell_snapshots/
-skills/.system/
 tmp/

@@ -11,26 +11,10 @@
 
     taps = [
       "nikitabobko/tap"
-      {
-        name = "rjyo/moshi";
-        trusted = true;
-      }
-      {
-        name = "raine/claude-code-proxy";
-        trusted = true;
-      }
     ];
 
     brews = [
       "mas"
-      {
-        name = "rjyo/moshi/moshi-hook";
-        restart_service = "changed";
-      }
-      {
-        name = "raine/claude-code-proxy/claude-code-proxy";
-        restart_service = "changed";
-      }
     ];
 
     casks = [
@@ -38,9 +22,9 @@
       "nikitabobko/tap/aerospace"
       "karabiner-elements"
       "google-chrome"
-      "microsoft-edge"
       # Codex desktop app; Homebrew retains the historical cask token.
       "chatgpt"
+      "claude"
       "discord"
       "element"
       "visual-studio-code"

@@ -1,72 +1,6 @@
 {
-  "model": "claude-fable-5[1m]",
+  "model": "opus[1m]",
   "hooks": {
-    "PermissionRequest": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "moshi-hook claude-hook",
-            "async": false
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "AskUserQuestion",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "moshi-hook claude-hook",
-            "async": true
-          }
-        ]
-      },
-      {
-        "matcher": "ExitPlanMode",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "moshi-hook claude-hook",
-            "async": true
-          }
-        ]
-      }
-    ],
-    "PreToolUse": [
-      {
-        "matcher": "AskUserQuestion",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "moshi-hook claude-hook",
-            "async": true
-          }
-        ]
-      },
-      {
-        "matcher": "ExitPlanMode",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "moshi-hook claude-hook",
-            "async": true
-          }
-        ]
-      }
-    ],
-    "SessionEnd": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "moshi-hook claude-hook",
-            "async": true
-          }
-        ]
-      }
-    ],
     "SessionStart": [
       {
         "matcher": "*",
@@ -77,39 +11,11 @@
             "timeout": 10
           }
         ]
-      },
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "moshi-hook claude-hook",
-            "async": true
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "moshi-hook claude-hook",
-            "async": true
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "moshi-hook claude-hook",
-            "async": true
-          }
-        ]
       }
     ]
+  },
+  "enabledPlugins": {
+    "swift-lsp@claude-plugins-official": true
   },
   "effortLevel": "xhigh",
   "tui": "fullscreen",
@@ -121,7 +27,5 @@
   "theme": "dark",
   "agentPushNotifEnabled": true,
   "voiceEnabled": true,
-  "enabledPlugins": {
-    "swift-lsp@claude-plugins-official": true
-  }
+  "switchModelsOnFlag": false
 }

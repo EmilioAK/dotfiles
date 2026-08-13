@@ -6,6 +6,17 @@ Inputs track rolling release (nixpkgs-unstable, nix-darwin master, Home Manager
 master), and `sup` commits `flake.lock` so every machine reproduces a known-good
 state.
 
+Layout:
+
+- `flake.nix` discovers hosts from `hosts/*.nix`; each host file declares its
+  platform, system, and the profiles it selects.
+- `modules/common` applies everywhere, `modules/darwin` and `modules/nixos` are
+  platform-specific.
+- `profiles/` holds opt-in bundles (`capisoft`, `thesis`) that contribute
+  Home Manager and system modules to the hosts that name them.
+- `dotfiles/` is linked into `$HOME` out of the Nix store, so tools that
+  rewrite their own config keep working.
+
 ## Setup A New Mac
 
 1. Install Nix: <https://nixos.org/download/>
@@ -77,7 +88,7 @@ state.
    not copy AWS login/SSO caches, GitHub token files, `known_hosts`, or the Nix
    store. Authenticate GitHub with the script above, enroll NetBird as a new
    machine, refresh AWS/Rancher/Kubernetes credentials, and sign in to Docker,
-   Codex, Pi, Claude, and npm as needed.
+   Codex, and Claude as needed.
 
 9. Launch Docker Desktop once and verify the Capisoft environment:
 
@@ -177,15 +188,8 @@ The `nix-vps` host is a NixOS system installed from this repo with
 Use the zsh helpers from the Home Manager zsh config for normal system work:
 
 - `sb`: build the current host without switching.
-- `ssw`: switch the current host without updating inputs, installing any missing
-  tracked npm CLIs after a successful switch.
-- `sup`: update inputs, switch, update npm-managed packages, commit `flake.lock`,
-  and collect old garbage.
-- `claude-codex`: launch Claude Code against the local Codex subscription proxy
-  with permission checks skipped. The launcher and proxy config are writable
-  out-of-store symlinks into this repo; the OAuth credential stays in macOS
-  Keychain. Authenticate once after the first switch with
-  `claude-code-proxy codex auth login`.
+- `ssw`: switch the current host without updating inputs.
+- `sup`: update inputs, switch, commit `flake.lock`, and collect old garbage.
 
 On macOS the helpers use `darwin-rebuild` and the host name from
 `scutil --get LocalHostName`. On NixOS they use `nixos-rebuild` and the host
@@ -199,16 +203,9 @@ name from `hostname`; for the VPS that means `.#nix-vps`.
 3. On macOS, lets nix-darwin activation handle Homebrew updates, upgrades, and
    cleanup from `modules/darwin/homebrew.nix`.
 4. Updates zsh plugins with Antidote.
-5. Installs/updates tracked npm CLIs at `~/.local/share/npm` and updates
-   npm-managed Pi packages with `pi update --extensions`.
-6. Commits `flake.lock` if the rebuild succeeds and the lock changed.
-7. Deletes Nix garbage older than 30 days with
+5. Commits `flake.lock` if the rebuild succeeds and the lock changed.
+6. Deletes Nix garbage older than 30 days with
    `sudo -H nix-collect-garbage --delete-older-than 30d`.
-
-After a successful switch, `ssw` checks the expected binaries for each tracked
-npm CLI and installs only packages whose binaries are missing. It does not
-upgrade packages that are already installed or update Pi extensions; those
-updates remain part of `sup`.
 
 If the rebuild fails, `sup` restores `flake.lock` and skips cleanup. If a
 post-switch updater fails, `sup` still runs cleanup but returns a non-zero status.
@@ -219,29 +216,24 @@ already existed before enabling that setting, run `sudo nix store optimise` once
 
 Zsh plugins are loaded by Antidote from `dotfiles/zsh/antidote-*.txt`. The
 manager and bundle list are Nix/Home Manager-managed; cloned plugin checkouts
-live in Antidote's cache and are updated by `sup`. Fast-moving CLIs such as Pi
-and Codex are intentionally managed by npm instead of Nix so `sup` can track
-their latest npm releases. Add more tracked npm CLIs in `trackedNpmPackages` in
-`modules/common/home.nix`.
+live in Antidote's cache and are updated by `sup`.
 
-Shared agent assets live under `dotfiles/agents`:
+Agent configuration is wired up in `modules/common/agents.nix`:
 
-- `dotfiles/agents/skills` contains generic skills shared by every host.
-- Selected profiles contribute their own skills from their profile directory.
-  Home Manager combines only those sources into the `~/.agents/skills` tree
-  that Pi and Codex discover.
-- `dotfiles/agents/AGENTS*.md` is linked as both Pi and Codex global
-  instructions so both know the same local policies.
-- Secrets live outside git at `~/.agents/secrets`; `~/.pi/secrets` is kept as a
-  compatibility symlink.
-
-Keep Codex-only system skills under `dotfiles/codex/skills/.system`.
+- `dotfiles/agents/AGENTS.default.md` is the global instruction file. A host
+  gets its own file only if `agentContextByHost` names one; everything else
+  falls back to the default.
+- Claude Code settings and both `herdr-agent-state.sh` hooks are writable
+  out-of-store symlinks, because both agents rewrite their own config at
+  runtime.
+- Codex config is per-host: `dotfiles/codex/config.<host>.toml`.
+- Secrets live outside git at `~/.agents/secrets`.
 
 ## Adding a machine
 
 For another Mac, follow the setup steps above, then list the named profiles the
 host should load. Profiles remain separate under `profiles/`; a host receives
-only the modules and agent skills it explicitly selects:
+only the modules it explicitly selects:
 
 ```nix
 profiles = [ "capisoft" ];
